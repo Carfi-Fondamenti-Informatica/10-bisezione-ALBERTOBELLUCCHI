@@ -26,7 +26,8 @@ int main() {
     if(err<1*pow(10, -6)) break;
     x=(a+b)/2;
     }
-    cout<<x<<endl<<F(x);
+    cout<<x<<endl;
+    cout<<F(x);
 
     return 0;
 }
