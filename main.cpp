@@ -3,7 +3,9 @@
 using namespace std;
 
 float f(float y){
-    return (y*y*cos(y))+1;
+    float f;
+    f=(y*y*cos(y))+1;
+    return f;
 }
 
 bool condizione(float a, float b){
