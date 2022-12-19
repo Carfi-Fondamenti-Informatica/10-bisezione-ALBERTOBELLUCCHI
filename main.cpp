@@ -18,13 +18,13 @@ int main() {
         Fb=F(b);
     }
 
-    x=(a+b)/2;//nel foglio era a=...
+    a=(a+b)/2;//nel foglio era a=...
     while(F(x)!=0){
     if(F(a)*F(b)<0)b=x;
     else a=x;
     err=abs(b-a)/2;
     if(err<1*pow(10, -6)) break;
-    x=(a+b)/2;
+    a=(a+b)/2;
     }
     cout<<x<<endl;
     cout<<F(x);
