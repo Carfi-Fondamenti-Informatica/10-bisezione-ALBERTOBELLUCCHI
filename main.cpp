@@ -18,7 +18,7 @@ void stampa(float x){
 }
 
 int main() {
-    float a=0,b=0,x,err=69;
+    float a=0,b=0,x,err;
 
     do{
         cout<<"inserire estremi"<<endl;//add endl
@@ -30,9 +30,11 @@ int main() {
         if(f(x)==0)
             break;
         else {
-            if (condizione(a, b))b = x;//<0
-            else a = x;
-            err = abs(b - a) / 2;
+            if (condizione(a, b))
+                a = x;
+            else
+                b = x;
+            err = abs((b - a) / 2);
         }
     }while(err>=1e-6);
     stampa(x);
