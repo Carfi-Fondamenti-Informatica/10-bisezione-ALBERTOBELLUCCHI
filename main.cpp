@@ -3,7 +3,7 @@
 using namespace std;
 
 float f(float y){
-    return (pow(y,2)*cos(y))+1;
+    return (y*y*cos(y))+1;
 }
 
 bool condizione(float a, float b){
