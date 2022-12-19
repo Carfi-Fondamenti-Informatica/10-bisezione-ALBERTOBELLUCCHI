@@ -22,10 +22,13 @@ int main() {
     }
 
     x=(a+b)/2;//nel foglio era a=...
-    while(F(x)!=0){
-        if(condizione(a,b))b=x;
-        else a=x;
-        err=abs(b-a)/2;
+    while(condizione(a,b)){
+        if(F(x)==0)cout<<setprecision(4)<<x<<endl;
+        else {
+            if (condizione(a, b))b = x;
+            else a = x;
+            err = abs(b - a) / 2;
+        }
         if(err<1e-6) break;
         x=(a+b)/2;
     }
@@ -33,4 +36,3 @@ int main() {
     //cout<<setprecision(4)<<F(x)<<endl;
     return 0;
 }
-
