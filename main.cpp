@@ -1,9 +1,10 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 using namespace std;
 
-float F(float x){
-    return x*x*cos(x)+1;
+float F(float y){
+    return pow(y,2)*cos(y)+1;
 
 }
 
@@ -26,8 +27,8 @@ int main() {
     if(err<1*pow(10, -6)) break;
     a=(a+b)/2;
     }
-    cout<<x<<endl;
-    cout<<F(x);
+    cout<<setprecision(4)<<x<<endl;
+    cout<<setprecision(4)<<F(x);
 
     return 0;
 }
