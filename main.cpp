@@ -5,30 +5,32 @@ using namespace std;
 
 float F(float y){
     return pow(y,2)*cos(y)+1;
+}
 
+bool condizione(float a, float b){
+    if(F(a)*F(b)<0) return true;
+    else return false;
 }
 
 int main() {
     float a,b,x,err;
     float Fa=1,Fb=1;
 
-    while(Fa*Fb>=0){
+    while(!condizione(a,b)){
         cout<<"inserire estremi"<<endl;//add endl
         cin>>a>>b;
-        Fa=F(a);
-        Fb=F(b);
     }
 
     x=(a+b)/2;//nel foglio era a=...
     while(F(x)!=0){
-    if(F(a)*F(b)<0)b=x;
-    else a=x;
-    err=abs(b-a)/2;
-    if(err<1*pow(10, -6)) break;
-    x=(a+b)/2;
+        if(condizione(a,b))b=x;
+        else a=x;
+        err=abs(b-a)/2;
+        if(err<1e-6) break;
+        x=(a+b)/2;
     }
     cout<<setprecision(4)<<x<<endl;
-    cout<<setprecision(4)<<F(x);
-
+    //cout<<setprecision(4)<<F(x)<<endl;
     return 0;
 }
+
