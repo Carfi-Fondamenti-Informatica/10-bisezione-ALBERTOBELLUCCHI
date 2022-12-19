@@ -3,9 +3,7 @@
 using namespace std;
 
 float f(float y){
-    float f;
-    f=(y*y*cos(y))+1;
-    return f;
+    return (y*y*cos(y))+1;
 }
 
 bool condizione(float a, float b){
@@ -20,7 +18,7 @@ void stampa(float x){
 }
 
 int main() {
-    float a=0,b=0,x,err;
+    float a,b,x,err;
 
     do{
         cout<<"inserire estremi"<<endl;
@@ -32,10 +30,10 @@ int main() {
         if(f(x)==0)
             break;
         else {
-            if (condizione(a, b))
-                a = x;
-            else
+            if (!condizione(a, x))
                 b = x;
+            else
+                a = x;
             err = abs((b - a) / 2);
         }
     }while(err>=1e-6);
@@ -43,3 +41,4 @@ int main() {
 
     return 0;
 }
+
