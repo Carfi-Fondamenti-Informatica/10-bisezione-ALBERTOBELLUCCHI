@@ -1,36 +1,41 @@
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 using namespace std;
 
-float F(float y){
-    return pow(y,2)*cos(y)+1;
+float f(float y){
+    return (pow(y,2)*cos(y))+1;
 }
 
 bool condizione(float a, float b){
-    if(F(a)*F(b)<0) return true;
-    else return false;
+    if(f(a)*f(b)>=0)
+        return true;
+    else
+        return false;
+}
+
+void stampa(float x){
+    cout<<int(x*10000)/10000.0<<endl;
 }
 
 int main() {
-    float a,b,x,err=69;
-    float Fa=1,Fb=1;
+    float a=0,b=0,x,err=69;
 
-    while(!condizione(a,b)){
+    do{
         cout<<"inserire estremi"<<endl;//add endl
         cin>>a>>b;
-    }
+    }while(condizione(a,b));
 
-    while(err>=1e-6){
+    do{
         x=(a+b)/2;
-        if(F(x)==0)cout<<setprecision(4)<<x<<endl;
+        if(f(x)==0)
+            break;
         else {
             if (condizione(a, b))b = x;//<0
             else a = x;
             err = abs(b - a) / 2;
         }
-    }
-    cout<<setprecision(4)<<x<<endl;
-    //cout<<setprecision(4)<<F(x)<<endl;
+    }while(err>=1e-6);
+    stampa(x);
+
     return 0;
 }
