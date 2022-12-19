@@ -13,7 +13,7 @@ bool condizione(float a, float b){
 }
 
 int main() {
-    float a,b,x,err;
+    float a,b,x,err=69;
     float Fa=1,Fb=1;
 
     while(!condizione(a,b)){
@@ -21,16 +21,14 @@ int main() {
         cin>>a>>b;
     }
 
-    x=(a+b)/2;//nel foglio era a=...
-    while(condizione(a,b)){
+    while(err>=1e-6){
+        x=(a+b)/2;
         if(F(x)==0)cout<<setprecision(4)<<x<<endl;
         else {
-            if (condizione(a, b))b = x;
+            if (condizione(a, b))b = x;//<0
             else a = x;
             err = abs(b - a) / 2;
         }
-        if(err<1e-6) break;
-        x=(a+b)/2;
     }
     cout<<setprecision(4)<<x<<endl;
     //cout<<setprecision(4)<<F(x)<<endl;
